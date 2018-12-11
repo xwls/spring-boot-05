@@ -5,12 +5,24 @@
 
 <mapper namespace="com.hwua.springboot05.dao.BookMapper">
 
-    <select id="queryAll" resultType="map">
+    <select id="queryAll" resultType="book">
         SELECT * FROM book
     </select>
 
-    <select id="queryById" parameterType="int" resultType="map">
+    <select id="queryById" parameterType="int" resultType="book">
         SELECT * FROM book WHERE id = #{id}
     </select>
+
+    <insert id="doInsert" parameterType="book" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO book (name, price) VALUES (#{name},#{price})
+    </insert>
+
+    <update id="doUpdate" parameterType="book">
+        UPDATE book SET name = #{name}, price = #{price} WHERE id = #{id}
+    </update>
+
+    <delete id="doDelete" parameterType="int">
+        DELETE FROM book WHERE id = #{id}
+    </delete>
 
 </mapper>
