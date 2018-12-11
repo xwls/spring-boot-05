@@ -7,3 +7,12 @@
           mapper-locations: classpath:mappers/*.xml
     4. 在启动类开启扫描数据层接口
         @MapperScan("com.hwua.springboot05.dao")
+- 配置缓存
+    1. 开启缓存
+        在启动类添加@EnableCaching注解
+    2. 在业务层方法中：
+        - @Cacheable：将方法的返回值写入缓存
+            1). cacheNames：缓存的名字
+            2). key：缓存中键值对的键，要求不同的值应该拥有不同的键
+            3). condition: 缓存的条件，条件成立缓存
+            4). unless：除非，条件成立不缓存
