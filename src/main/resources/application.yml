@@ -9,3 +9,6 @@ spring:
     maxWait: 5000
 #    开启监控
     filters: stat
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mappers/*.xml

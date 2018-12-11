@@ -1,0 +1,9 @@
+- 整合mybatis
+    1. mybatis-config.xml
+    2. mappers文件夹
+    3. 在主配置文件
+        mybatis:
+          config-location: classpath:mybatis-config.xml
+          mapper-locations: classpath:mappers/*.xml
+    4. 在启动类开启扫描数据层接口
+        @MapperScan("com.hwua.springboot05.dao")
