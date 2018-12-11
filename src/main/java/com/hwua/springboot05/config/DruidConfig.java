@@ -45,6 +45,10 @@ public class DruidConfig {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.setFilter(new WebStatFilter());
         bean.setUrlPatterns(Arrays.asList("/*"));
+        Map<String, String> initParams = new HashMap<>();
+        //排除不需要监控的url
+        initParams.put("exclusions","*.js,*.css,*.jpg,/druid/*,*.ico");
+        bean.setInitParameters(initParams);
         return bean;
     }
 }

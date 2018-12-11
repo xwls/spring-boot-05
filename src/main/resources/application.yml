@@ -7,3 +7,5 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     initialSize: 2
     maxWait: 5000
+#    开启监控
+    filters: stat
