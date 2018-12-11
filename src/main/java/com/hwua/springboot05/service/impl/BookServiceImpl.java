@@ -27,7 +27,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Cacheable(cacheNames = "book",key = "#id",condition = "#id < 10")
+    @Cacheable(cacheNames = "book",keyGenerator = "myKeyGenerator")
     public Book getBook(Integer id) {
         logger.debug("查询"+id+"号图书");
         return bookMapper.queryById(id);
