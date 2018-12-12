@@ -30,28 +30,28 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    @Cacheable(/*cacheNames = "book",*/key = "#id")
+    @Cacheable(/*cacheNames = "book",*/key = "'book-'+#id")
     public Book getBook(Integer id) {
         logger.debug("查询"+id+"号图书");
         return bookMapper.queryById(id);
     }
 
     @Override
-    @CachePut(/*cacheNames = "book",*/key = "#book.id")
+    @CachePut(/*cacheNames = "book",*/key = "'book-'+#book.id")
     public Book save(Book book) {
         bookMapper.doInsert(book);
         return book;
     }
 
     @Override
-    @CachePut(/*cacheNames = "book",*/key = "#book.id")
+    @CachePut(/*cacheNames = "book",*/key = "'book-'+#book.id")
     public Book update(Book book) {
         bookMapper.doUpdate(book);
         return book;
     }
 
     @Override
-    @CacheEvict(/*cacheNames = "book",key = "#id"*/allEntries = true)
+    @CacheEvict(/*cacheNames = "book",*/key = "'book-'+#id"/*allEntries = true*/)
     public int delete(Integer id) {
         return bookMapper.doDelete(id);
     }
