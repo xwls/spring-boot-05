@@ -9,6 +9,9 @@ spring:
     maxWait: 5000
 #    开启监控
     filters: stat
+  redis:
+    host: 127.0.0.1
+    port: 6379
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mappers/*.xml

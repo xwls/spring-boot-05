@@ -19,3 +19,14 @@
         - @CachePut：将方法的返回值写入缓存（始终会写入）
         - @CacheEvict：从缓存中删除数据
             allEntries：设置为true的话，删除全部缓存的数据
+        - @CacheConfig：在类上加此注解，用来设置cacheNames和cacheManager等配置
+- 使用redis做缓存
+    1). 添加依赖
+        spring-boot-starter-data-redis
+    2). 配置主机和端口号
+        spring:
+          redis:
+              host: 127.0.0.1
+              port: 6379
+    3). 缓存的对象需要实现序列化接口
+        java.io.Serializable
